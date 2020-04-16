@@ -1,4 +1,6 @@
 ﻿using MovieManager.Core.Contracts;
+using MovieManager.Core.Entities;
+using System.Linq;
 
 namespace MovieManager.Persistence
 {
@@ -11,6 +13,11 @@ namespace MovieManager.Persistence
             _dbContext = dbContext;
         }
 
-
+        public Movie GetLongestMovie() => _dbContext
+            .Movies
+            .OrderByDescending(m => m.Duration)
+            .ThenBy(m => m.Title)
+            .First();
+            
     }
 }
