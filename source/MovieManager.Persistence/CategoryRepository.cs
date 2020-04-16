@@ -14,14 +14,9 @@ namespace MovieManager.Persistence
             _dbContext = dbContext;
         }
 
-        //public (string, int) GetCategoryWithMostMovies() => _dbContext
-        //    .Categories
-        //    .Select(c => new
-        //    {
-        //        CatName = c.CategoryName,
-        //        Count = c.Movies.Count()
-        //    })
-        //    .OrderByDescending(m => m.Count)
-        //    .FirstOrDefault();
+        public Category GetCategoryWithMostMovies() => _dbContext
+            .Categories
+            .OrderByDescending(c => c.Movies.Count())
+            .First();
     }
 }

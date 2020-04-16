@@ -5,6 +5,6 @@ namespace MovieManager.Core.Contracts
 {
     public interface ICategoryRepository
     {
-        //(string, int) GetCategoryWithMostMovies();
+        Category GetCategoryWithMostMovies();
     }
 }
