@@ -13,6 +13,11 @@ namespace MovieManager.Persistence
             _dbContext = dbContext;
         }
 
+        public void AddRange(Movie[] movies)
+        {
+            _dbContext.AddRange(movies);
+        }
+
         public Movie GetLongestMovie() => _dbContext
             .Movies
             .OrderByDescending(m => m.Duration)

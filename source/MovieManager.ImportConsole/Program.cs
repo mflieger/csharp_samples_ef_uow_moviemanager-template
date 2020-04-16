@@ -52,9 +52,10 @@ namespace MovieManager.ImportConsole
                         categories.Add(movie.Category.CategoryName, movie.Category);
                     }
                 }
-
+                
                 Console.WriteLine($"  Es wurden {movies.Count()} Movies in {categories.Count()} Kategorien eingelesen!");
 
+                unitOfWork.MovieRepository.AddRange(movies);
                 unitOfWork.Save();
 
                 Console.WriteLine();
